@@ -1,0 +1,28 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "extends": [
+    "plugin:@wordpress/eslint-plugin/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "wp": "readonly",
+    "window": "readonly",
+    "document": "readonly",
+    "StackBlur": "readonly"
+  },
+  "rules": {
+    "capitalized-comments": "off",
+    "indent": [
+      "error",
+      2,
+      {
+        "MemberExpression": "off",
+        "SwitchCase": 1
+      }
+    ]
+  }
+}

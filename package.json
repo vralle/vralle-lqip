@@ -1,0 +1,34 @@
+{
+  "name": "vralle-lqip",
+  "version": "0.0.1",
+  "description": "Brings lazySizes.js to WordPress",
+  "private": true,
+  "author": "vralle",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "copy-stackblur": "shx mkdir -p vendor/stackblur/ && shx cp -r node_modules/stackblur-canvas/dist/ vendor/stackblur/",
+    "dist": "npm-run-all copy-*",
+    "js": "npm-run-all js-compile js-minify",
+    "js-compile": "rollup --config rollup.config.js --sourcemap",
+    "js-minify": "terser --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/lqip.js.map,includeSources,url=lqip.min.js.map\" --output dist/lqip.min.js dist/lqip.js"
+  },
+  "dependencies": {
+    "stackblur-canvas": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@wordpress/eslint-plugin": "^3.2.0",
+    "eslint": "^6.7.1",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^1.27.5",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "shx": "^0.3.2",
+    "terser": "^4.4.0"
+  }
+}
