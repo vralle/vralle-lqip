@@ -21,13 +21,15 @@
 
 namespace VRalleLqip;
 
-const LQIP_META_PREFIX = 'gaussholder_';
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
     die;
 }
 
-require plugin_dir_path( __FILE__ ) . 'includes/plugin-api.php';
-require plugin_dir_path( __FILE__ ) . 'includes/generate-lqip.php';
-require plugin_dir_path( __FILE__ ) . 'includes/image-header.php';
-require plugin_dir_path( __FILE__ ) . 'includes/frontend.php';
+define( 'VRALLE_LQIP_META_PREFIX', 'gaussholder_' );
+define( 'VRALLE_LQIP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+
+require VRALLE_LQIP_PLUGIN_DIR . 'includes/plugin-api.php';
+require VRALLE_LQIP_PLUGIN_DIR . 'includes/generate-lqip.php';
+require VRALLE_LQIP_PLUGIN_DIR . 'includes/image-header.php';
+require VRALLE_LQIP_PLUGIN_DIR . 'includes/frontend.php';

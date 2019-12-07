@@ -59,7 +59,7 @@ function generate_placeholders( $attachment_id ) {
     foreach ( $sizes as $size => $sample_factor ) {
         $data = generate_placeholder( $attachment_id, $size, $sample_factor );
         if ( $data ) {
-            update_post_meta( $attachment_id, LQIP_META_PREFIX . $size, $data );
+            update_post_meta( $attachment_id, VRALLE_LQIP_META_PREFIX . $size, $data );
         }
     }
 }
@@ -119,7 +119,7 @@ function create_lqip( $path, $sample_factor ) {
  * @return $editors
  */
 function add_editor( $editors ) {
-    require_once __DIR__ . '/class-gaussholder-image-editor-imagick.php';
+    require_once VRALLE_LQIP_PLUGIN_DIR . 'includes/class-gaussholder-image-editor-imagick.php';
     if ( is_array( $editors ) ) {
         array_unshift( $editors, __NAMESPACE__ . '\\Gaussholder_Image_Editor_Imagick' );
     }

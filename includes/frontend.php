@@ -10,7 +10,6 @@ namespace VRalleLqip;
 use function add_action;
 use function add_filter;
 use function defined;
-use function dirname;
 use function file_exists;
 use function get_post_meta;
 use function wp_json_encode;
@@ -32,7 +31,7 @@ function add_lqip_attr( $attrs, $tag_name, $id, $size ) {
     if ( $id && $size ) {
         if ( is_enabled_size( $size ) ) {
             if ( ! isset( $attrs['data-gaussholder'] ) ) {
-                $meta = get_post_meta( absint( $id ), LQIP_META_PREFIX . $size, true );
+                $meta = get_post_meta( absint( $id ), VRALLE_LQIP_META_PREFIX . $size, true );
                 if ( $meta && ! empty( $meta ) ) {
                     $attrs['data-gaussholder'] = $meta;
                 }
@@ -50,8 +49,9 @@ function output_script() {
     if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() ) {
         return;
     }
-    $ext    = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.js' : '.min.js';
-    $file   = dirname( dirname( __FILE__ ) ) . '/dist/lqip' . $ext;
+
+    $ext  = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.js' : '.min.js';
+    $file = VRALLE_LQIP_PLUGIN_DIR . 'dist/lqip' . $ext;
 
     // Prevent phar deserialization vulnerability.
     if ( false !== strpos( strtolower( trim( $file ) ), 'phar://' ) ) {
