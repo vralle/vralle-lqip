@@ -22,6 +22,10 @@
 namespace VRalleLqip;
 
 const LQIP_META_PREFIX = 'gaussholder_';
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+    die;
+}
 
 require plugin_dir_path( __FILE__ ) . 'includes/plugin-api.php';
 require plugin_dir_path( __FILE__ ) . 'includes/generate-lqip.php';
