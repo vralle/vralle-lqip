@@ -16,7 +16,7 @@ This project is porting Gaussholder for vralle.lazyload:<br>
 
 When we met with a Gaussholder, the guys from Human Made did a great job and were able to solve one of the biggest problems - reducing the size of the preview image to bytes, but making it beautiful.
 
-Gaussholder uses its own mechanism for delayed image loading. We use the time-tested [LazySizes] (https://github.com/aFarkas/lazysizes) by Alexander Farkash. The mechanism for creating a preview image has been ported to this plugin, but received some changes..
+Gaussholder uses its own mechanism for delayed image loading. We use the time-tested [LazySizes](https://github.com/aFarkas/lazysizes) by Alexander Farkash. The mechanism for creating a preview image has been ported to this plugin, but received some changes.
 
 vralle.lqip use the same filter and metadata as Gaussholder.
 
