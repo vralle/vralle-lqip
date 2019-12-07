@@ -79,6 +79,13 @@ function generate_placeholder( $id, $size, $sample_factor ) {
     if ( $img && $img[3] ) { // if image size exist.
         if ( strpos( $img[0], $uploads['baseurl'] ) === 0 ) { // check if local.
             $path = str_replace( $uploads['baseurl'], $uploads['basedir'], $img[0] );
+
+            // Prevent phar deserialization vulnerability.
+            if ( false !== strpos( strtolower( trim( $path ) ), 'phar://' ) ) {
+                new WP_Error( 'generate_placeholder', 'phar deserialization vulnerability identified', $id );
+                return null;
+            }
+
             if ( file_exists( $path ) ) {
                 return create_lqip( $path, $sample_factor );
             }

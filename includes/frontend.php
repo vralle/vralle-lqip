@@ -52,6 +52,11 @@ function output_script() {
     }
     $ext    = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.js' : '.min.js';
     $file   = dirname( dirname( __FILE__ ) ) . '/dist/lqip' . $ext;
+
+    // Prevent phar deserialization vulnerability.
+    if ( false !== strpos( strtolower( trim( $file ) ), 'phar://' ) ) {
+        return new WP_Error( 'load_js', 'phar deserialization vulnerability identified' );
+    }
     $header = build_header();
     ?>
 <script>
