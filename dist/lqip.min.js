@@ -1,5 +1,5 @@
 /*!
-  * LQIP for vralle-lazyload v0.0.1
+  * LQIP for vralle-lazyload v0.0.2
   * Copyright 2019 V.Ralle
   * Licensed under MIT
   */
