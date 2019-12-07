@@ -6,8 +6,9 @@
  *
  * @wordpress-plugin
  * Plugin Name:       vralle.lqip
- * Description:       LQIP (Low Quality Image Placeholder) for vralle.lazyload. Fast and lightweight image previews, using Gaussian blur.
  * Version:           0.0.1
+ * Description:       LQIP (Low Quality Image Placeholder) for vralle.lazyload. Fast and lightweight image previews.
+ * Plugin URI:        https://github.com/vralle/vralle-lqip
  * Author:            V.Ralle
  * Author URI:        https://github.com/vralle
  * License:           GPLv2 or later

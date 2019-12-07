@@ -20,7 +20,7 @@ module.exports = [
       banner: `/*!
   * LQIP for vralle-lazyload v${pkg.version}
   * Copyright ${year} V.Ralle
-  * Licensed under MIT
+  * Licensed under GPL2+
   */`
     },
     external: [ 'window', 'document' ],

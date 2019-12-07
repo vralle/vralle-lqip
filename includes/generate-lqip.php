@@ -70,7 +70,7 @@ add_action( 'vll_generate_lqip', __NAMESPACE__ . '\\generate_placeholders' );
  *
  * @param int    $id Attachment ID.
  * @param string $size Image size.
- * @param int    $sample_factor Blur radius.
+ * @param int    $sample_factor Scaling factor.
  * @return array|null 3-tuple of binary image data (string), width (int), height (int) on success; null on error.
  */
 function generate_placeholder( $id, $size, $sample_factor ) {
@@ -98,7 +98,7 @@ function generate_placeholder( $id, $size, $sample_factor ) {
  * Get data for a file
  *
  * @param string $path Image file path.
- * @param int    $sample_factor Scaling.
+ * @param int    $sample_factor Scaling factor.
  * @return array 3-tuple of binary image data (string), width (int), and height (int).
  */
 function create_lqip( $path, $sample_factor ) {

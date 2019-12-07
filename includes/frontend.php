@@ -57,6 +57,7 @@ function output_script() {
     if ( false !== strpos( strtolower( trim( $file ) ), 'phar://' ) ) {
         return new WP_Error( 'load_js', 'phar deserialization vulnerability identified' );
     }
+
     $header = build_header();
     ?>
 <script>
@@ -74,7 +75,7 @@ window.lazySizesConfig.loadMode = 1;
 add_action( 'wp_footer', __NAMESPACE__ . '\\output_script', 10, 1 );
 
 /**
- * Output script onto the page.
+ * Default styles.
  */
 function output_styles() {
     ?>
