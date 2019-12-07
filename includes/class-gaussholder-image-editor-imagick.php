@@ -21,11 +21,11 @@ class Gaussholder_Image_Editor_Imagick extends WP_Image_Editor_Imagick {
     /**
      * Generate LQIP Parts
      *
-     * @param  int $sample_factor [description].
+     * @param  int $sample_factor Scaling factor.
      * @return mixed Preview image parts or null.
      */
     public function create_lqip( $sample_factor ) {
-        $lqip_part = '';
+        $lqip_part = null;
         try {
             $width  = floor( $this->size['width'] / $sample_factor );
             $height = floor( $this->size['height'] / $sample_factor );
@@ -44,9 +44,11 @@ class Gaussholder_Image_Editor_Imagick extends WP_Image_Editor_Imagick {
         } catch ( Exception $e ) {
             new WP_Error( 'create_lqip_error', $e->getMessage(), $this->file );
         }
+
         if ( $lqip_part ) {
-            return base64_encode( $lqip_part ) . ',' . $width . ',' . $height;
+            $lqip_part = base64_encode( $lqip_part ) . ',' . $width . ',' . $height;
         }
-        return null;
+
+        return $lqip_part;
     }
 }
