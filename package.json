@@ -9,11 +9,10 @@
     "node": ">=6"
   },
   "scripts": {
-    "copy-stackblur": "shx mkdir -p vendor/stackblur/ && shx cp -r node_modules/stackblur-canvas/dist/ vendor/stackblur/",
-    "dist": "npm-run-all copy-*",
     "js": "npm-run-all js-compile js-minify",
     "js-compile": "rollup --config rollup.config.js --sourcemap",
-    "js-minify": "terser --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/lqip.js.map,includeSources,url=lqip.min.js.map\" --output dist/lqip.min.js dist/lqip.js"
+    "js-minify": "terser --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/lqip.js.map,includeSources,url=lqip.min.js.map\" --output dist/lqip.min.js dist/lqip.js",
+    "dist": "npm-run-all js"
   },
   "dependencies": {
     "stackblur-canvas": "^2.2.0"
