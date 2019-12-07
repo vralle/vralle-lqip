@@ -14,6 +14,7 @@ use function file_exists;
 use function get_post_meta;
 use function wp_json_encode;
 use SCRIPT_DEBUG;
+use WP_Error;
 
 /**
  * Add preview image data to image tag.
